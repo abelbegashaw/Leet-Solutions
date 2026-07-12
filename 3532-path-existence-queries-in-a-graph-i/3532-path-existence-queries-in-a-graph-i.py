@@ -30,9 +30,7 @@ class Solution:
                     left = mid + 1
                 else:
                     right = mid - 1
-            
-
-        print(segments)
+        
         for u, v in queries:
             result.append(find(u) == find(v)) 
 
