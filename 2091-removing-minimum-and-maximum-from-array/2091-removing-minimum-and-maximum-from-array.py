@@ -6,7 +6,6 @@ class Solution:
 
         if max_index < min_index:
             max_index, min_index = min_index, max_index
-        
 
         return min (
             max(min_index, max_index) + 1,
