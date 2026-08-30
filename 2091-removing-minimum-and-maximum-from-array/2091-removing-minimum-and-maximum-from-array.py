@@ -11,17 +11,3 @@ class Solution:
             min_index + 1 + len(nums) - max_index,
             max_index + 1 + len(nums) - min_index,
         )
-        """
-        2, 10, 7, 5, 4, 1, 8, 6
-           |            |
-           2            3
-        
-        locate the numbers first and last occurrence. Will the following four options 
-        delete the max and min elements consistently ...
-        
-        left, left => max_index
-        left, right => left_dist + right_dist
-        right, left => right_dist + left_dist
-        right, right => min_index
-
-        """
