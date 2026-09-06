@@ -1,22 +1,11 @@
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
         
-        memo = {}
-        def dp(i, j):
-            if j == len(t):
-                return 1
-
-            if i == len(s):
-                return 0
-            
-            state = (i, j)
-            if state not in memo:
-
+        table = [[0 if j != len(t) else 1 for j in range(len(t) + 1)] for _ in range(len(s) + 1)]
+        for i in range(len(s) - 1, -1, -1):
+            for j in range(len(t) - 1, -1, -1):
                 if s[i] == t[j]:
-                    memo[state] = dp(i + 1, j + 1) + dp(i + 1, j)
-                
+                    table[i][j] = table[i + 1][j + 1] + table[i + 1][j]
                 else:
-                    memo[state] = dp(i + 1, j)
-            return memo[state]
-
-        return dp(0, 0)
+                    table[i][j] = table[i + 1][j]
+        return table[0][0]
