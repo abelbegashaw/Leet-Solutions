@@ -3,6 +3,18 @@
  * @return {number}
  */
 var countCommas = function(n) {
-    // works only up to 999,999
-    return Math.max(0, n - 999)
+    let result = 0;
+    let curr = 999;
+    let commas = 1;
+    while (curr <= n) {
+        let next = curr * 1000 + curr
+        if (next <= n) {
+            result += (next - curr) * commas
+        } else {
+            result += (n - curr) * commas
+        }
+        curr = next
+        commas++;
+    }
+    return result;
 };
