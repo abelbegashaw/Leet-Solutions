@@ -4,17 +4,10 @@
  */
 var countCommas = function(n) {
     let result = 0;
-    let curr = 999;
-    let commas = 1;
-    while (curr <= n) {
-        let next = curr * 1000 + 999
-        if (next <= n) {
-            result += (next - curr) * commas
-        } else {
-            result += (n - curr) * commas
-        }
-        curr = next
-        commas++;
+    let curr = 1000;
+    while(curr <= n) {
+        result += n - curr + 1
+        curr *= 1000
     }
     return result;
 };
