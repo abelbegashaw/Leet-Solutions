@@ -5,4 +5,4 @@ FROM (
     FROM Customer
     GROUP BY customer_id
     ) AS c
-WHERE c.product_count = (SELECT COUNT(Product.product_key) FROM Product)
+WHERE c.product_count = (SELECT COUNT(product_key) FROM Product)
